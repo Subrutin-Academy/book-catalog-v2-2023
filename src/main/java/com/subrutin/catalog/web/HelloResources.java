@@ -17,7 +17,6 @@ private GreetingService greetingService;
 
 
 
-
 	@GetMapping("/hello")
 	public String helloWorld() {
 		return greetingService.sayGreeting();
