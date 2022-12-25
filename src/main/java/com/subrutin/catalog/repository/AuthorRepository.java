@@ -1,0 +1,20 @@
+package com.subrutin.catalog.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.subrutin.catalog.domain.Author;
+
+public interface AuthorRepository extends JpaRepository<Author, Long> {
+
+	// method name convention
+	// find+keyword
+	// sql -> select * from Author a where a.id = :authorId
+	public Optional<Author> findById(Long id);
+	
+	//sql -> sql select a from Author where a.auth0r_name LIKE :authorId
+	public List<Author> findByNameLike(String authorName);
+
+}
