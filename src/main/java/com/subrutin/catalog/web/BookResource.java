@@ -42,6 +42,12 @@ public class BookResource {
 		bookService.createNewBook(dto);
 		return ResponseEntity.created(URI.create("/  ")).build();
 	}
+	
+    @GetMapping("/book")
+    public ResponseEntity<List<BookDetailDTO>> findBookList(){
+        return ResponseEntity.ok().body(bookService.findBookListDetail());
+        
+    }
 
 	// PUT /book
 
