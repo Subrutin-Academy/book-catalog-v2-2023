@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StopWatch;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,5 +59,11 @@ public class BookResource {
         bookService.updateBook(bookId, dto);
         return ResponseEntity.ok().build();
     }
+    
 	// DELETE /book
+    @DeleteMapping("/book/{bookId}")
+    public ResponseEntity<Void> deleteBook(@PathVariable("bookId") Long bookId){
+        bookService.deleteBook(bookId);
+        return ResponseEntity.ok().build();
+    }
 }
