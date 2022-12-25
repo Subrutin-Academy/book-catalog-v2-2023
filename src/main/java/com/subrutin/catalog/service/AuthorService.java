@@ -7,13 +7,13 @@ import com.subrutin.catalog.dto.AuthorResponseDTO;
 import com.subrutin.catalog.dto.AuthorUpdateRequestDTO;
 
 public interface AuthorService {
-
-	public AuthorResponseDTO findAuthorById(Long id);
 	
-    public void createNewAuthor(List<AuthorCreateRequestDTO> dto);
-    
-	public void updateAuthor(Long authorId, AuthorUpdateRequestDTO dto);
+	public AuthorResponseDTO findAuthorById(String id);
 	
-    public void deleteAuthor(Long authorId);
+	public void createNewAuthor(List<AuthorCreateRequestDTO> dto);
+	
+	public void updateAuthor(String authorId, AuthorUpdateRequestDTO dto);
+	
+	public void deleteAuthor(String authorId);
 
 }
