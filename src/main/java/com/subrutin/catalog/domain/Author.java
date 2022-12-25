@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//@DynamicUpdate
 @Entity(name="author")
 public class Author {
 	
