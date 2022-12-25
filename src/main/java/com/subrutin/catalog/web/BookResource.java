@@ -32,9 +32,10 @@ public class BookResource {
 	@GetMapping("/book/{bookId}")
 	public BookDetailDTO findBookDetail(@PathVariable("bookId") Long id) {
 		StopWatch stopWatch = new StopWatch();
-		log.info("start findBookDetail " + id);
-		BookDetailDTO result = bookService.findBookDetailById(id);
-		log.info("finish findBookDetail. execution time = {}", stopWatch);
+		log.info("start findBookDetail "+id);
+		stopWatch.start();
+		BookDetailDTO result =  bookService.findBookDetailById(id);
+		log.info("finish findBookDetail. execution time = {}",stopWatch.getTotalTimeMillis());
 		return result;
 
 	}
