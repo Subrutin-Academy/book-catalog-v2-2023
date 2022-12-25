@@ -9,7 +9,8 @@ spring:
       idle-timeout: 600000
       max-lifetime: 1800000
       maximum-pool-size: 10
-    url: jdbc:postgresql://127.0.0.1/book_catalog
+    url: jdbc:postgresql://127.0.0.1/book_catalog?reWriteBatchedInserts=true
+    
     username: subrutin
     password: subrutin
   jpa:
@@ -19,7 +20,9 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true      
+        jdbc:
+          batch_size: 100
+    show-sql: true
   
 app:
   currency: IDR

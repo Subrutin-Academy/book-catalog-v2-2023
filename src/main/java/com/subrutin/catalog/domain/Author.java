@@ -24,7 +24,7 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
-	@Column(name = "author_name", nullable = false)
+	@Column(name = "author_name", nullable = false, columnDefinition = "varchar(300)")
 	private String name;
 	
 	@Column(name = "birth_date", nullable = false)
