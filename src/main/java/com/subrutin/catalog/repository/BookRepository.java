@@ -1,18 +1,14 @@
 package com.subrutin.catalog.repository;
 
-import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.subrutin.catalog.domain.Book;
 
-public interface BookRepository {
-    public Book findBookById(Long id);
-    
-	public List<Book> findAll();
+public interface BookRepository extends JpaRepository<Book, Long>{
 	
-	public void save(Book book);
-	
-    public void update(Book book);
+	public Optional<Book> findById(Long id);
     
-    public void delete(Long bookId);
 
 }
