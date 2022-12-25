@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.subrutin.catalog.domain.Author;
 import com.subrutin.catalog.dto.AuthorCreateRequestDTO;
 import com.subrutin.catalog.dto.AuthorResponseDTO;
+import com.subrutin.catalog.dto.AuthorUpdateRequestDTO;
 import com.subrutin.catalog.exception.BadRequestException;
 import com.subrutin.catalog.repository.AuthorRepository;
 import com.subrutin.catalog.service.AuthorService;
@@ -46,6 +47,17 @@ public class AuthorServiceImpl implements AuthorService {
 
 		
 		authorRepository.saveAll(authors);
+	}
+
+	@Override
+	public void updateAuthor(Long authorId, AuthorUpdateRequestDTO dto) {
+		Author author = authorRepository.findById(authorId)
+				.orElseThrow(() -> new BadRequestException("invalid.authorId"));
+		author.setName(dto.getAuthorName() == null ? author.getName() : dto.getAuthorName());
+		author.setBirthDate(
+				dto.getBirthDate() == null ? author.getBirthDate() : LocalDate.ofEpochDay(dto.getBirthDate()));
+		
+		authorRepository.save(author);		
 	}
 
 }

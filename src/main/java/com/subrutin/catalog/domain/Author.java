@@ -17,9 +17,12 @@ import lombok.NoArgsConstructor;
 @Entity(name="author")
 public class Author {
 	
-    //postgre-> bigserial
-    //mysql->autoincrement
-    //strategy -> identity
+	//postgre-> bigserial
+	//mysql->autoincrement
+	//strategy -> identity -> cons: batch insert disabled
+	//batch insert -> stored producured
+	
+	//strategy sequence -> pros: enable batch insert
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
