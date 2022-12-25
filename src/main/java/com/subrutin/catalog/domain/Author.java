@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,8 +31,8 @@ public class Author {
 	
 	//strategy sequence -> pros: enable batch insert
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-//	@SequenceGenerator(name = "author_generator", sequenceName = "author_id_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_generator")
+	@SequenceGenerator(name = "author_generator", sequenceName = "author_id_seq")
 	private Long id;
 	
 	@Column(name = "author_name", nullable = false, columnDefinition = "varchar(300)")
