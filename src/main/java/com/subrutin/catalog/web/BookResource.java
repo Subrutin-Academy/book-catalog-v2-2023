@@ -3,6 +3,8 @@ package com.subrutin.catalog.web;
 import java.net.URI;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.subrutin.catalog.dto.BookCreateDTO;
+import com.subrutin.catalog.dto.BookCreateRequestDTO;
 import com.subrutin.catalog.dto.BookDetailDTO;
 import com.subrutin.catalog.dto.BookUpdateRequestDTO;
 import com.subrutin.catalog.service.BookService;
@@ -42,9 +44,9 @@ public class BookResource {
 
 	// nama yang salah /save-book /create-book
 	@PostMapping("/book")
-	public ResponseEntity<Void> createANewBook(@RequestBody BookCreateDTO dto) {
+	public ResponseEntity<Void> createANewBook(@RequestBody BookCreateRequestDTO dto){
 		bookService.createNewBook(dto);
-		return ResponseEntity.created(URI.create("/  ")).build();
+		return ResponseEntity.created(URI.create("/book")).build();
 	}
 	
     @GetMapping("/book")
