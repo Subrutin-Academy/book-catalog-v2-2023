@@ -8,6 +8,7 @@ import com.subrutin.catalog.exception.ResourceNotFoundException;
 import com.subrutin.catalog.repository.AppUserRepository;
 import com.subrutin.catalog.service.AppUserService;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
