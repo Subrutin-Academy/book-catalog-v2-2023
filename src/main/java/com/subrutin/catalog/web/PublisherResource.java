@@ -4,6 +4,7 @@ import java.net.URI;
 
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,12 +30,14 @@ public class PublisherResource {
 
 	private final PublisherService publisherService;
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/v1/publisher")
 	public ResponseEntity<Void> createNewPublisher(@RequestBody @Valid PublisherCreateRequestDTO dto) {
 		publisherService.createPublisher(dto);
 		return ResponseEntity.created(URI.create("/v1/publisher")).build();
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/v1/publisher/{publisherId}")
 	public ResponseEntity<Void> updatePublisher(@PathVariable String publisherId,
 			@RequestBody @Valid PublisherUpdateRequestDTO dto) {
@@ -42,6 +45,7 @@ public class PublisherResource {
 		return ResponseEntity.ok().build();
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@LogThisMethod
 	@GetMapping("/v1/publisher")
 	public ResponseEntity<ResultPageResponseDTO<PublisherListResponseDTO>> findPublisherList(
