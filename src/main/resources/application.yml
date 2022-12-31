@@ -1,6 +1,6 @@
 logging:  
   level:
-   '[com.subrutin.catalog]': ERROR
+   '[com.subrutin.catalog]': TRACE
 
 spring:
   datasource:
