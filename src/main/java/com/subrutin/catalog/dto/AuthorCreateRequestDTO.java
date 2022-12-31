@@ -16,4 +16,6 @@ public class AuthorCreateRequestDTO {
 	
 	@NotNull
 	private Long birthDate;
+	
+	private List<AddressCreateRequestDTO> addresses;
 }
