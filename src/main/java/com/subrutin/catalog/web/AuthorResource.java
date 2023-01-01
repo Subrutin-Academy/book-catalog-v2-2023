@@ -23,6 +23,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
+@Validated
 public class AuthorResource {
 	
 	private final AuthorService authorService;
