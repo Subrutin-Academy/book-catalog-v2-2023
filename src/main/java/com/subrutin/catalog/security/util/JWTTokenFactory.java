@@ -24,7 +24,7 @@ public class JWTTokenFactory {
 
 	public AccessJWTToken createAccessJWTToken(String username, Collection<? extends GrantedAuthority> authorities) {
 		Claims claims = Jwts.claims().setSubject(username);
-		claims.put("scope", authorities.stream().map(a -> a.getAuthority()).collect(Collectors.toList()));
+		claims.put("scopes", authorities.stream().map(a -> a.getAuthority()).collect(Collectors.toList()));
 		LocalDateTime currentTime = LocalDateTime.now();
 		LocalDateTime expiredTime = currentTime.plusMinutes(15);
 		
