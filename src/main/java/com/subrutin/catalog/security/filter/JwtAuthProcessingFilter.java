@@ -26,7 +26,7 @@ public class JwtAuthProcessingFilter extends AbstractAuthenticationProcessingFil
 	
 	private final AuthenticationFailureHandler failureHandler;
 
-	protected JwtAuthProcessingFilter(RequestMatcher requiresAuthenticationRequestMatcher,
+	public JwtAuthProcessingFilter(RequestMatcher requiresAuthenticationRequestMatcher,
 			TokenExtractor tokenExtractor,
 			AuthenticationFailureHandler failureHandler) {
 		super(requiresAuthenticationRequestMatcher);
